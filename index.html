@@ -153,6 +153,12 @@ function showVideo(){
         document.getElementById("sig").style.opacity = 1;
     },2500);
 }
+    document.addEventListener("click", ()=>{
+    const music = document.getElementById("bgMusic");
+    if(music.paused){
+        music.play().catch(()=>{});
+    }
+}, {once:true});
 </script>
 </body>
 </html>
