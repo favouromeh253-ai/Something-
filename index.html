@@ -138,11 +138,20 @@ function typeEffect(section){
 }
 
 function showVideo(){
-    document.getElementById("bgMusic").play();
+    const music = document.getElementById("bgMusic");
+
+    // 💡 This MUST be inside user click
+    music.play().catch(err=>{
+        console.log("Autoplay blocked:", err);
+    });
+
     const vSec = document.getElementById("videoSection");
     vSec.style.display = "flex";
-    vSec.scrollIntoView({behavior: "smooth"});
-    setTimeout(() => { document.getElementById("sig").style.opacity = 1; }, 2500);
+    vSec.scrollIntoView({behavior:"smooth"});
+
+    setTimeout(()=>{
+        document.getElementById("sig").style.opacity = 1;
+    },2500);
 }
 </script>
 </body>
